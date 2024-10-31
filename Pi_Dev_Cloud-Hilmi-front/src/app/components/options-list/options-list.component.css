@@ -1,0 +1,17 @@
+.page-banner-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  text-align: center; /* Center text horizontally */
+}
+
+.need-assistance-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  margin-top: 20px; /* Adjust margin as needed */
+}
+
+.need-assistance-container h2 {
+  margin-bottom: 10px; /* Adjust margin as needed */
+}

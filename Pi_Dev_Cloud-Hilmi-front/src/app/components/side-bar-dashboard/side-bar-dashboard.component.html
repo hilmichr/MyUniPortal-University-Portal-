@@ -1,0 +1,217 @@
+<!-- Sidebar START -->
+<nav class="navbar sidebar navbar-expand-xl navbar-dark bg-dark">
+  <!-- Navbar brand for xl START -->
+  <div class="d-flex align-items-center">
+    <a class="navbar-brand" routerLink="/">
+      <img
+        class="navbar-brand-item"
+        src="/assets/assets-front/images/logo-esprit.png"
+        style="width: 200; height: 90"
+        alt=""
+      />
+    </a>
+  </div>
+  <!-- Navbar brand for xl END -->
+
+  <div
+    class="offcanvas offcanvas-start flex-row custom-scrollbar h-100"
+    data-bs-backdrop="true"
+    tabindex="-1"
+    id="offcanvasSidebar"
+  >
+    <div class="offcanvas-body sidebar-content d-flex flex-column bg-dark">
+      <!-- Sidebar menu START -->
+      <ul class="navbar-nav flex-column" id="navbar-sidebar">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard/all-users"
+            ><i class="fas fa-user-graduate fa-fw me-2"></i>All Users</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard/stat-role"
+            ><i class="fas fa-user-graduate fa-fw me-2"></i>Stat Users</a
+          >
+        </li>
+
+        <!-- Menu item Blog -->
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            data-bs-toggle="collapse"
+            href="#collapseblog"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseblog"
+          >
+            <i class="fas fa-user-tie fa-fw me-2"></i>Blog
+          </a>
+          <!-- Submenu -->
+          <ul
+            class="nav collapse flex-column"
+            id="collapseblog"
+            data-bs-parent="#navbar-sidebar"
+          >
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/dashboard/create-article"
+                ><i class="fas fa-user-graduate fa-fw me-2"></i>Create
+                Article</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/dashboard/all-article"
+                ><i class="fas fa-user-graduate fa-fw me-2"></i>all Article</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/dashboard/stat-article"
+                ><i class="fas fa-user-graduate fa-fw me-2"></i>Stat Article</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <!-- Menu item Option -->
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            data-bs-toggle="collapse"
+            href="#collapseoption"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseoption"
+          >
+            <i class="fas fa-user-tie fa-fw me-2"></i>Option
+          </a>
+          <!-- Submenu -->
+          <ul
+            class="nav collapse flex-column"
+            id="collapseoption"
+            data-bs-parent="#navbar-sidebar"
+          >
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/dashboard/create-option"
+                ><i class="fas fa-user-graduate fa-fw me-2"></i>Create Option</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/dashboard/all-Options"
+                ><i class="fas fa-user-graduate fa-fw me-2"></i>Option List</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                routerLink="/dashboard/create-unite-enseignement"
+                ><i class="fas fa-user-graduate fa-fw me-2"></i> Create Unite
+                Enseignement</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/dashboard/all-unite-enseignement"
+                ><i class="fas fa-user-graduate fa-fw me-2"></i> All Unite
+                Enseignement</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            data-bs-toggle="collapse"
+            href="#collapseEvent"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseEvent"
+          >
+            <i class="fas fa-user-tie fa-fw me-2"></i>Event
+          </a>
+          <ul
+            class="nav collapse flex-column"
+            id="collapseEvent"
+            data-bs-parent="#navbar-sidebar"
+          >
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/dashboard/create-event"
+                ><i class="fas fa-user-graduate fa-fw me-2"></i>Create Event</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/dashboard/event-list"
+                ><i class="fas fa-user-graduate fa-fw me-2"></i>All Event</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/dashboard/stat-reservation"
+                ><i class="fas fa-user-graduate fa-fw me-2"></i>stat
+                reservation</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/dashboard/all-reservation"
+                ><i class="fas fa-user-graduate fa-fw me-2"></i>all
+                reservation</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <!-- Menu item Subject -->
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            data-bs-toggle="collapse"
+            href="#collapsesubject"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseoption"
+          >
+            <i class="fas fa-user-tie fa-fw me-2"></i>Subject
+          </a>
+          <!-- Submenu -->
+          <ul
+            class="nav collapse flex-column"
+            id="collapsesubject"
+            data-bs-parent="#navbar-sidebar"
+          >
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/dashboard/create-subject"
+                ><i class="fas fa-user-graduate fa-fw me-2"></i>Create
+                Subject</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/dashboard/all-subject"
+                ><i class="fas fa-user-graduate fa-fw me-2"></i>Subject List</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/dashboard/create-service"
+                ><i class="fas fa-user-graduate fa-fw me-2"></i>Create
+                Service</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/dashboard/all-service"
+                ><i class="fas fa-user-graduate fa-fw me-2"></i>Service List</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/dashboard/upload-ressource"
+                ><i class="fas fa-user-graduate fa-fw me-2"></i>Upload
+                Ressource</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/dashboard/all-ressource"
+                ><i class="fas fa-user-graduate fa-fw me-2"></i>Ressource
+                List</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <!-- Sidebar menu end -->
+    </div>
+  </div>
+</nav>
+<!-- Sidebar END -->

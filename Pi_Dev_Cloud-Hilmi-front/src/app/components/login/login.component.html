@@ -1,0 +1,84 @@
+<!--====== PAGE BANNER PART START ======-->
+
+<section
+  id="page-banner"
+  class="pt-105 pb-110 bg_cover"
+  data-overlay="8"
+  style="background-image: url(images/page-banner-1.jpg)"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-banner-cont">
+          <h2>Login</h2>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Login</li>
+            </ol>
+          </nav>
+        </div>
+        <!-- page banner cont -->
+      </div>
+    </div>
+    <!-- row -->
+  </div>
+  <!-- container -->
+</section>
+<!--====== PAGE BANNER PART ENDS ======-->
+
+<!--====== PROVACY PART START ======-->
+
+<section class="signup pt-105 pb-120 gray-bg">
+  <div class="container">
+    <div class="col-md-8 offset-md-2">
+      <div class="signup-content">
+        <form
+          (ngSubmit)="login()"
+          method="POST"
+          id="signup-form"
+          class="signup-form"
+        >
+          <h2 class="form-title pb-20">Connect to your account</h2>
+          <div class="form-group">
+            <input
+              type="email"
+              [(ngModel)]="email"
+              class="form-input"
+              name="email"
+              id="email"
+              placeholder="Your Email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              [(ngModel)]="password"
+              class="form-input"
+              name="password"
+              id="password"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <a
+              for="agree-term"
+              class="label-agree-term"
+              routerLink="/forgot-password"
+              >forgot password!</a
+            >
+          </div>
+          <div class="form-group">
+            <button type="submit" class="main-btn register-submit">
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--====== FAQ PART ENDS ======-->

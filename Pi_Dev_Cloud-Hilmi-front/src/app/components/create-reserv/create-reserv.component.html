@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="card">
+    <div class="card-container">
+      <div class="card col-md-6 offset-md-3 offset-md-3">
+        <div class="row">
+          <h3 class="text-center">Ajouter une réservation</h3>
+          <hr />
+          <div class="card-body">
+            <form
+              [formGroup]="reservForm"
+              (ngSubmit)="onSubmit()"
+              novalidate
+              #form="ngForm"
+            >
+              <div class="form-group">
+                <label for="nom">Nom </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nom_reserv"
+                  formControlName="nom_reserv"
+                />
+                <div
+                  *ngIf="
+                    reservForm.get('nom_reserv')?.hasError('required') &&
+                    reservForm.get('nom_reserv')?.touched
+                  "
+                  class="text-danger"
+                >
+                  Nom est requis.
+                </div>
+                <div
+                  *ngIf="reservForm.get('nom_reserv')?.hasError('minlength')"
+                  class="text-danger"
+                >
+                  Le nom doit contenir au moins 4 lettres.
+                </div>
+                <div
+                  *ngIf="
+                    reservForm.get('nom_reserv')?.hasError('containsNumber')
+                  "
+                  class="text-danger"
+                >
+                  Le nom ne doit pas contenir de chiffres.
+                </div>
+              </div>
+
+              <!-- 
+  <div class="form-group">
+                <label for="date_deb">date reservation</label>
+                <input type="date" class="form-control" id="date_reser" formControlName="date_reser">
+                <div *ngIf="reservForm.get('date_reser')?.hasError('required') && reservForm.get('date_reser')?.touched" class="text-danger">
+                  date est requis.
+                    <div class="text-danger" style="display: none;">Date est requise.</div>
+                </div>
+              </div>
+    -->
+
+              <!--div class="form-group">
+                <label for="image">Image:</label>
+               <input type="file" id="image" (change)="onFileSelected($event)" accept="image/*">
+              </div-->
+              <br />
+              <button type="submit" (click)="reserve()">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

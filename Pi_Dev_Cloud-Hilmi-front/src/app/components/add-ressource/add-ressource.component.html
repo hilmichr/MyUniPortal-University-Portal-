@@ -1,0 +1,39 @@
+<div class="bg-primary bg-opacity-10 rounded-3 p-4 p-sm-5">
+  <!-- Title -->
+  <h2 class="mb-3">Add your Ressource</h2>
+
+  <!-- Form START -->
+  <form class="row g-4 g-sm-3 mt-2 mb-0" [formGroup]="ressourceForm">
+    <!-- Name -->
+    <div class="col-12">
+      <label class="form-label">Subject Name *</label>
+      <input
+        type="file"
+        class="form-control"
+        aria-label="ressource"
+        formControlName="ressource"
+        (change)="onFileSelected($event)"
+      />
+    </div>
+    <div class="col-12">
+      <label class="form-label">Service *</label>
+      <select id="subject" class="form-control" formControlName="serviceId">
+        <option *ngFor="let Service of allService" [value]="Service.serviceId">
+          {{ Service.serviceName }}
+        </option>
+      </select>
+    </div>
+    <!-- Button -->
+    <div class="col-12 d-grid">
+      <button
+        type="submit"
+        class="btn btn-lg btn-primary mb-0"
+        [disabled]="!ressourceForm.valid"
+        (click)="uploadRessources()"
+      >
+        submit
+      </button>
+    </div>
+  </form>
+  <!-- Form END -->
+</div>

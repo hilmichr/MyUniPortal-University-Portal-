@@ -1,0 +1,96 @@
+<div class="bg-primary bg-opacity-10 rounded-3 p-4 p-sm-5">
+  <!-- Title -->
+  <h2 class="mb-3">Type your User</h2>
+
+  <!-- Form START -->
+  <form class="row g-4 g-sm-3 mt-2 mb-0" [formGroup]="userForm">
+    <!-- Name -->
+    <div class="col-12">
+      <label class="form-label">user name *</label>
+      <input
+        type="text"
+        class="form-control"
+        aria-label="usernam"
+        formControlName="usernam"
+      />
+    </div>
+
+    <!-- Name -->
+    <div class="col-12">
+      <label class="form-label">last name *</label>
+      <input
+        type="text"
+        class="form-control"
+        aria-label="userlastname"
+        formControlName="userlastname"
+      />
+    </div>
+
+    <!-- Name -->
+    <div class="form-group">
+      <label class="form-label">role *</label>
+      <select id="rle" class="form-control" formControlName="rle">
+        <option value="ADMIN">ADMIN</option>
+        <option value="USER">USER</option>
+      </select>
+    </div>
+
+    <!-- Name -->
+    <div class="col-12">
+      <label class="form-label">telephone *</label>
+      <input
+        type="text"
+        class="form-control"
+        aria-label="usertelephone"
+        formControlName="usertelephone"
+      />
+    </div>
+
+    <!-- Name -->
+    <div class="col-12">
+      <label class="form-label">birth date *</label>
+      <input
+        type="date"
+        class="form-control"
+        aria-label="userdate_birth"
+        formControlName="userdate_birth"
+      />
+    </div>
+
+    <!-- Name -->
+    <div class="col-12">
+      <label class="form-label">nationalite *</label>
+      <input
+        type="text"
+        class="form-control"
+        aria-label="usernationaliter"
+        formControlName="usernationaliter"
+      />
+    </div>
+
+    <!-- Name -->
+    <div class="form-group">
+      <label class="form-label">Genre *</label>
+      <select
+        id="usergenderr"
+        class="form-control"
+        formControlName="usergenderr"
+      >
+        <option value="male">Male</option>
+        <option value="female">female</option>
+      </select>
+    </div>
+    <!-- Button -->
+    <div class="col-12 d-grid">
+      <button
+        type="submit"
+        class="btn btn-lg btn-primary mb-0"
+        [disabled]="!userForm.valid"
+        (click)="updateUser()"
+      >
+        submit
+      </button>
+    </div>
+  </form>
+  <!-- Form END -->
+</div>

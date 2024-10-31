@@ -1,0 +1,185 @@
+<!--====== PAGE BANNER PART START ======-->
+
+<section
+  id="page-banner"
+  class="pt-105 pb-130 bg_cover"
+  data-overlay="8"
+  style="background-image: url(assets/assets-front/images/page-banner-1.jpg)"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-banner-cont">
+          <h2>Blog</h2>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Blog</li>
+            </ol>
+          </nav>
+        </div>
+        <!-- page banner cont -->
+      </div>
+    </div>
+    <!-- row -->
+  </div>
+  <!-- container -->
+</section>
+
+<!--====== PAGE BANNER PART ENDS ======-->
+
+<!--====== BLOG PART START ======-->
+
+<section id="blog-page" class="pt-90 pb-120 gray-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <ng-container
+          *ngFor="
+            let article of allArticles
+              | paginate
+                : {
+                    itemsPerPage: 2,
+                    currentPage: currentPage,
+                    totalItems: totalPageNumber * 2
+                  }
+          "
+        >
+          <!-- single blog begin -->
+          <div class="single-blog mt-30">
+            <div class="blog-thum">
+              <img [src]="article.imageUrl" alt="Blog" />
+            </div>
+            <div class="blog-cont">
+              <a routerLink="/blog-details/{{ article.id }}"
+                ><h3>{{ article.title }}</h3></a
+              >
+              <ul>
+                <li>
+                  <a href="#"
+                    ><i class="fa fa-calendar"></i
+                    >{{ article.createdAt | date : "medium" }}</a
+                  >
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-user"></i>{{ article.name }}</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-tags"></i>Education</a>
+                </li>
+              </ul>
+              <p>
+                {{
+                  article.content.length > 250
+                    ? article.content.substr(0, 250) + "..."
+                    : article.content
+                }}
+              </p>
+            </div>
+          </div>
+        </ng-container>
+        <!-- single blog end -->
+
+        <!-- courses pagination begin -->
+        <pagination-template
+          #p="paginationApi"
+          (pageChange)="currentPage = $event; ngOnInit()"
+        >
+          <nav class="courses-pagination mt-50">
+            <ul
+              class="pagination justify-content-lg-end justify-content-center"
+            >
+              <li class="page-item" [class.disabled]="p.isFirstPage()">
+                <a *ngIf="!p.isFirstPage()" (click)="p.previous()">
+                  <i class="fa fa-angle-left"></i>
+                </a>
+              </li>
+              <li
+                class="page-item"
+                *ngFor="let page of p.pages"
+                [class.current]="p.getCurrent() === page.value"
+              >
+                <a
+                  (click)="p.setCurrent(page.value)"
+                  *ngIf="p.getCurrent() !== page.value"
+                >
+                  <span>{{ page.label }}</span>
+                </a>
+                <a class="active" *ngIf="p.getCurrent() === page.value">
+                  <span>{{ page.label }}</span>
+                </a>
+              </li>
+              <li class="page-item" [class.disabled]="p.isLastPage()">
+                <a *ngIf="!p.isLastPage()" (click)="p.next()">
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </pagination-template>
+        <!-- courses pagination end -->
+      </div>
+      <div class="col-lg-4">
+        <div class="sidebar">
+          <div class="row">
+            <div class="col-lg-12 col-md-6">
+              <div class="sidebar-search mt-30">
+                <form action="#">
+                  <input type="text" placeholder="Search" />
+                  <button type="button"><i class="fa fa-search"></i></button>
+                </form>
+              </div>
+              <!-- sidebar search -->
+              <div class="categories mt-30">
+                <h4>Categories</h4>
+                <ul>
+                  <li><a href="#">Fronted</a></li>
+                  <li><a href="#">Backend</a></li>
+                  <li><a href="#">Photography</a></li>
+                  <li><a href="#">Technology</a></li>
+                  <li><a href="#">GMET</a></li>
+                  <li><a href="#">Language</a></li>
+                  <li><a href="#">Science</a></li>
+                  <li><a href="#">Accounting</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- categories -->
+            <div class="col-lg-12 col-md-6">
+              <div class="sidebar-post mt-30">
+                <h4>Popular Posts</h4>
+                <ul>
+                  <ng-container *ngFor="let popular of popularArticles">
+                    <li>
+                      <a routerLink="/blog-details/{{ popular.id }}">
+                        <div class="single-post">
+                          <div class="thum">
+                            <img [src]="popular.imageUrl" alt="Blog" />
+                          </div>
+                          <div class="cont">
+                            <h6>{{ popular.title }}</h6>
+                            <span>{{
+                              popular.createdAt | date : "medium"
+                            }}</span>
+                          </div>
+                        </div>
+                        <!-- single post -->
+                      </a>
+                    </li>
+                  </ng-container>
+                </ul>
+              </div>
+              <!-- sidebar post -->
+            </div>
+          </div>
+          <!-- row -->
+        </div>
+        <!-- sidebar -->
+      </div>
+    </div>
+    <!-- row -->
+  </div>
+  <!-- container -->
+</section>
+
+<!--====== BLOG PART ENDS ======-->

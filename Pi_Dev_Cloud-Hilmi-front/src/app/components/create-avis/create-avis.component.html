@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="card">
+    <div class="card-container">
+      <div class="card col-md-6 offset-md-3 offset-md-3">
+        <div class="row">
+          <h3 class="text-center">Ajouter un commentaire</h3>
+          <hr />
+          <div class="card-body">
+
+
+            <form
+              [formGroup]="avisForm"
+              (ngSubmit)="onSubmit()"
+              novalidate
+              #form="ngForm"
+            >
+              <div class="form-group">
+                <label for="nom">Votre commentaire</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="contenu"
+                  formControlName="contenu"
+                />
+                <div
+                  *ngIf="
+                    avisForm.get('contenu')?.hasError('required') &&
+                    avisForm.get('contenu')?.touched
+                  "
+                  class="text-danger"
+                >
+                  le commentaire est requis.
+                </div>
+              </div>
+
+              <!--div class="form-group">
+                <label for="image">Image:</label>
+               <input type="file" id="image" (change)="onFileSelected($event)" accept="image/*">
+              </div-->
+              <br />
+              <button type="submit" (click)="onSubmit()">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="bg-primary bg-opacity-10 rounded-3 p-4 p-sm-5">
+  <!-- Title -->
+  <h2 class="mb-3">Type your blog</h2>
+
+  <!-- Form START -->
+  <form class="row g-4 g-sm-3 mt-2 mb-0" [formGroup]="articleForm">
+    <!-- Name -->
+    <div class="col-12">
+      <label class="form-label">Title *</label>
+      <input
+        type="text"
+        class="form-control"
+        aria-label="Title"
+        formControlName="title"
+      />
+    </div>
+    <!-- Name -->
+    <div class="col-12">
+      <label class="form-label">Select Image *</label>
+      <input
+        type="file"
+        class="form-control"
+        aria-label="Image"
+        (change)="onFileSelected($event)"
+      />
+    </div>
+    <!-- Email -->
+    <div class="col-12">
+      <label class="form-label">Content *</label>
+      <textarea
+        type="te"
+        class="form-control"
+        rows="5"
+        formControlName="content"
+      ></textarea>
+    </div>
+    <!-- tags -->
+    <div class="col-12">
+      <label class="form-label">Tags *</label>
+      <div class="editor-tag" (click)="focusTagInput()">
+        <span class="tag-item" *ngFor="let tag of tags">
+          {{ tag }}
+          <span class="remove-tag" (click)="removeTag(tag)">×</span>
+        </span>
+        <input
+          placeholder="Tags"
+          #tagInput
+          type="text"
+          class="form-control"
+          (keyup)="onKeyUp($event)"
+          formControlName="tag"
+        />
+      </div>
+    </div>
+    <!-- Button -->
+    <div class="col-12 d-grid">
+      <button
+        type="submit"
+        class="btn btn-lg btn-primary mb-0"
+        [disabled]="!articleForm.valid"
+        (click)="createArticle()"
+      >
+        submit
+      </button>
+    </div>
+  </form>
+  <!-- Form END -->
+</div>

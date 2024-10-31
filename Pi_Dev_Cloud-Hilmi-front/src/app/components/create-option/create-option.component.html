@@ -1,0 +1,74 @@
+<div class="bg-primary bg-opacity-10 rounded-3 p-4 p-sm-5">
+  <!-- Title -->
+  <h2 class="mb-3">Type your Option</h2>
+
+  <!-- Form START -->
+  <form class="row g-4 g-sm-3 mt-2 mb-0" [formGroup]="optionForm">
+    <!-- Name -->
+    <div class="col-12">
+      <label class="form-label">Nom *</label>
+      <input
+        type="text"
+        class="form-control"
+        aria-label="Title"
+        formControlName="nom"
+      />
+    </div>
+    <!-- Name -->
+    <div class="col-12">
+      <label class="form-label">Select Pdf *</label>
+      <input
+        type="file"
+        class="form-control"
+        aria-label="Image"
+        (change)="onFileSelected($event)"
+      />
+    </div>
+    <!-- Email -->
+    <div class="col-12">
+      <label class="form-label">Description *</label>
+      <input type="text" class="form-control" formControlName="description" />
+    </div>
+    <!-- Email -->
+    <div class="col-12">
+      <label class="form-label">Categorie *</label>
+      <select
+        id="categorie"
+        class="form-control"
+        formControlName="categorieSpecialite"
+      >
+        <option *ngFor="let categorie of categories" [value]="categorie">
+          {{ categorie }}
+        </option>
+      </select>
+    </div>
+
+    <form class="col-12">
+      <div class="form-check" *ngFor="let ue of lista">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          [id]="ue.id"
+          name="interest"
+          [value]="ue.id"
+          (change)="onChange($event, ue.id)"
+        />
+        <label class="form-check-label" for="music"> {{ ue.nom }} </label>
+        <input type="text" [id]="ue.id + 10000" class="form-control" />
+      </div>
+    </form>
+    <!-- Button -->
+    <div class="col-12 d-grid">
+      <button
+        type="submit"
+        class="btn btn-lg btn-primary mb-0"
+        [disabled]="!optionForm.valid"
+        [(ngModel)]="coefInput"
+        (click)="createOption()"
+      >
+        submit
+      </button>
+    </div>
+  </form>
+  <!-- Form END -->
+</div>

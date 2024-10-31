@@ -1,0 +1,97 @@
+<!--====== CONTACT PART START ======-->
+
+<section id="contact-page" class="pt-90 pb-120 gray-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="contact-from mt-30">
+          <div class="section-title">
+            <h5>Calcule Score</h5>
+            <h2>Type your Notes</h2>
+          </div>
+          <!-- section title -->
+          <div class="main-form pt-10">
+            <form
+              id="contact-form"
+              [formGroup]="scoreForm"
+              data-toggle="validator"
+              *ngIf="allScore == null"
+            >
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="single-form form-group">
+                    <label for="name" class="form-label"
+                      >Moyenne Generale</label
+                    >
+                    <input
+                      name="moyenneGenerale"
+                      type="text"
+                      placeholder="Moyenne General"
+                      data-error="required label."
+                      required="required"
+                      formControlName="moyenneGenerale"
+                    />
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <!-- single form -->
+                </div>
+                <ng-container *ngFor="let ue of allUE">
+                  <div class="col-md-12">
+                    <div class="single-form form-group">
+                      <label for="name" class="form-label">{{ ue.nom }}</label>
+                      <input
+                        name="name"
+                        type="text"
+                        [id]="ue.id"
+                        [placeholder]="ue.nom"
+                        data-error="required label."
+                        required="required"
+                        (change)="onChange($event, ue.id)"
+                      />
+                      <div class="help-block with-errors"></div>
+                    </div>
+                    <!-- single form -->
+                  </div>
+                </ng-container>
+                <p class="form-message"></p>
+                <div class="col-md-12">
+                  <div class="single-form">
+                    <button
+                      type="submit"
+                      (click)="calculeScore()"
+                      class="main-btn"
+                    >
+                      Send
+                    </button>
+                  </div>
+                  <!-- single form -->
+                </div>
+              </div>
+              <!-- row -->
+            </form>
+            <table class="table table-bordered" *ngIf="allScore != null">
+              <thead>
+                <tr>
+                  <th scope="col">Options</th>
+                  <th scope="col">Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let score of objectKeys(allScore)">
+                  <th scope="row">{{ score }}</th>
+                  <td scope="row">{{ allScore[score] }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- main form -->
+        </div>
+        <!--  contact from -->
+      </div>
+    </div>
+    <!-- row -->
+  </div>
+  <!-- container -->
+</section>
+
+<!--====== CONTACT PART ENDS ======-->

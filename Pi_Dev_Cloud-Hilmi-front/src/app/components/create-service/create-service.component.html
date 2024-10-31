@@ -1,0 +1,59 @@
+<div class="bg-primary bg-opacity-10 rounded-3 p-4 p-sm-5">
+  <!-- Title -->
+  <h2 class="mb-3">Type your service</h2>
+
+  <!-- Form START -->
+  <form class="row g-4 g-sm-3 mt-2 mb-0" [formGroup]="serviceForm">
+    <!-- Name -->
+    <div class="col-12">
+      <label class="form-label">Service Name *</label>
+      <input
+        type="text"
+        class="form-control"
+        aria-label="serviceName"
+        formControlName="serviceName"
+      />
+    </div>
+    <!-- Name -->
+    <div class="col-12">
+      <label class="form-label">service Description *</label>
+      <input
+        type="text"
+        class="form-control"
+        aria-label="serviceDescription"
+        formControlName="serviceDescription"
+      />
+    </div>
+    <!-- Name -->
+    <div class="col-12">
+      <label class="form-label">Select Image *</label>
+      <input
+        type="file"
+        class="form-control"
+        aria-label="serviceImage"
+        (change)="onFileSelected($event)"
+      />
+    </div>
+    <!-- Name -->
+    <div class="col-12">
+      <label class="form-label">subject *</label>
+      <select id="subject" class="form-control" formControlName="subject">
+        <option *ngFor="let subject of allSubject" [value]="subject.subjectId">
+          {{ subject.subjectName }}
+        </option>
+      </select>
+    </div>
+    <!-- Button -->
+    <div class="col-12 d-grid">
+      <button
+        type="submit"
+        class="btn btn-lg btn-primary mb-0"
+        [disabled]="!serviceForm.valid"
+        (click)="createService()"
+      >
+        submit
+      </button>
+    </div>
+  </form>
+  <!-- Form END -->
+</div>

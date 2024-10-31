@@ -1,0 +1,141 @@
+<!-- All review table START -->
+<div class="card card-body bg-transparent pb-0 border mb-4">
+  <!-- Table START -->
+  <div class="table-responsive border-0">
+    <table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
+      <!-- Table head -->
+      <thead>
+        <tr>
+          <th scope="col" class="border-0 rounded-start">#</th>
+          <th scope="col" class="border-0">Nom du reservation</th>
+          <th scope="col" class="border-0">Date de reservation</th>
+          <th scope="col" class="border-0">Nom de l'Evenement</th>
+          <th scope="col" class="border-0">Nombre de Place restant</th>
+          <th scope="col" class="border-0 rounded-end">Action</th>
+        </tr>
+      </thead>
+
+      <!-- Table body START -->
+      <tbody>
+        <!-- Table row -->
+        <ng-container *ngFor="let reservation of reservations">
+          <tr>
+            <!-- Table data -->
+            <td>{{ reservation.id }}</td>
+
+            <!-- Table data -->
+            <td>
+              <div class="d-flex align-items-center position-relative">
+                <!-- Image -->
+                <div class="avatar avatar-xs mb-2 mb-md-0">
+                  <img
+                    src="assets/images/avatar/09.jpg"
+                    class="rounded-circle"
+                    alt=""
+                  />
+                </div>
+                <div class="mb-0 ms-2">
+                  <!-- Title -->
+                  <h6 class="mb-0">
+                    <a href="#" class="stretched-link">{{
+                      reservation.nom_reserv
+                    }}</a>
+                  </h6>
+                </div>
+              </div>
+            </td>
+
+            <!-- Table data -->
+            <td>
+              <h6 class="table-responsive-title mb-0">
+                <a href="#">{{ reservation.date_reser }}</a>
+              </h6>
+            </td>
+
+            <!-- Table data -->
+            <td>
+              <h6 class="table-responsive-title mb-0">
+                <a href="#">{{ reservation?.event?.nom }}</a>
+              </h6>
+            </td>
+
+            <td>
+              <h6 class="table-responsive-title mb-0">
+                <a href="#">{{ reservation?.event?.nbrPlace }}</a>
+              </h6>
+            </td>
+
+            <!-- Table data -->
+            <td>
+              <button
+                href="#"
+                class="btn btn-success-soft btn-round me-1 mb-1 mb-md-0"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title=""
+                data-bs-original-title="Edit"
+              >
+                <i class="bi bi-pencil-square"></i>
+              </button>
+              <button
+                class="btn btn-danger-soft btn-round me-1 mb-1 mb-md-0"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title=""
+                data-bs-original-title="Delete"
+                (click)="onDeleteBloc(reservation)"
+              >
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+      <!-- Table body END -->
+    </table>
+  </div>
+  <!-- Table END -->
+
+  <!-- Card footer START -->
+  <div class="card-footer bg-transparent px-0">
+    <!-- Pagination START -->
+    <div class="d-sm-flex justify-content-sm-between align-items-sm-center">
+      <!-- Content -->
+      <p class="mb-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
+      <!-- Pagination -->
+      <nav class="d-flex justify-content-center mb-0" aria-label="navigation">
+        <ul
+          class="pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex rounded mb-0"
+        >
+          <li class="page-item mb-0">
+            <a class="page-link" href="#" tabindex="-1"
+              ><i class="fas fa-angle-left"></i
+            ></a>
+          </li>
+          <li class="page-item mb-0"><a class="page-link" href="#">1</a></li>
+          <li class="page-item mb-0 active">
+            <a class="page-link" href="#">2</a>
+          </li>
+          <li class="page-item mb-0"><a class="page-link" href="#">3</a></li>
+          <li class="page-item mb-0">
+            <a class="page-link" href="#"><i class="fas fa-angle-right"></i></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <!-- Pagination END -->
+  </div>
+  <!-- Card footer END -->
+</div>
+<!-- All review table END -->
+
+<div class="text-center mt-4">
+  <button class="btn btn-primary mr-2" (click)="ExportPdf()">
+    Exporter en PDF
+  </button>
+  <span class="mr-2"></span>
+  <!-- Ajouter un espace -->
+  <button class="btn btn-success" (click)="goTostatEnseignat()">
+    Afficher les statistiques
+  </button>
+</div>
